@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t yodevops/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run yodevops/docker-react npm run -- --coverage
